@@ -1,8 +1,12 @@
 <?php
 
+use App\Http\Controllers\CategorieController;
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\LocationController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,5 +23,9 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
     return $request->user();
 });
 
-/* Route::ressource('test', TestController::class); */
-Route::middleware(['auth:sanctum'])->resource('test', TestController::class);
+Route::resource('test', TestController::class);
+//Route::middleware(['auth:sanctum'])->resource('test', TestController::class);
+Route::resource('comment-all', CommentController::class);
+Route::resource('categories-all', CategorieController::class);
+Route::resource('location-all', LocationController::class);
+Route::resource('user-all', UserController::class);
